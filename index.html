@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation & transition</title>
+    <style type="text/css">
+        body{
+            background-color: orange;
+        }
+        .caixa img{
+            width: 100%;
+            height: auto;
+        }
+        .caixa{
+            position: relative;
+            width: 500px ;
+            height: 500px;
+        }
+        .caixa header{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top:0;
+            left: 0;
+        }
+        h2{
+            z-index: 2;
+            transition: font-size 1s;
+            font-size: larger;
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        h2:hover{
+            font-size: 3em;
+        }
+        .tintaplana{
+            position: absolute;
+            mix-blend-mode: screen;
+            z-index: 1 ;
+            width: 100%;
+            height: 100%;
+            background-color: orange;
+            transition: opacity 1s;
+        }
+        .caixa .tintaplana:hover{
+            opacity: 0;
+        }
+        #flames{
+            position: absolute;
+            top:0;
+            left:0;
+            z-index: 3;
+            animation-name: foc;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes foc{
+            0%{
+                top:0;
+                left:0;
+            }
+            10%{
+                top:10%;
+                left:90%;
+            }
+            35%{
+                top:100%;
+                left:60%;
+            }
+            75%{
+                top:50%;
+                left:15%;
+            }
+            100%{
+                top:0;
+                left:0;
+            }
+        }
+        .caixa_img{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            /*filter: grayscale(100%);*/
+        }
+        .caixa_img img{
+            object-fit: cover;
+            transition: transform 2s;
+        }
+        .caixa_img img:hover{
+            transform: rotateX(180deg);
+        }
+        @media only screen and (max-width: 960px){
+            body {
+                background-color: orange;
+            }
+            .caixa{
+                width: 100%;
+            }
+        }
+        @media only screen and (max-width: 600px){
+            body {
+                background-color: orange;
+            }
+            .caixa{
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="caixa"> 
+    <header>
+        <h2>NO FUN</h2>
+        <div class= "tintaplana"></div>
+    </header>
+        <div class="caixa_img">
+            <img src="img/kitten-bandit-prints.jpg">
+        </div>
+</div>
+    <img id="flames" src="img/gif-sin-fondo-baile-6.gif">
+</body>
+</html>
